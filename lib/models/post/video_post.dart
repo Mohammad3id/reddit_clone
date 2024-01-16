@@ -1,4 +1,3 @@
-
 part of "post.dart";
 
 class VideoPost extends Post {
@@ -15,6 +14,7 @@ class VideoPost extends Post {
     required super.subredditImageUrl,
     required super.comments,
     required super.upvotes,
+    required super.userVote,
     required super.date,
-  });
+  }) : super(commentsCount: countCommentsWithReplies(comments));
 }

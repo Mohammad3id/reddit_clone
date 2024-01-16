@@ -1,8 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:reddit_clone/models/post/post.dart';
 import 'package:reddit_clone/presentation/widgets/feed_post_header.dart';
 import 'package:reddit_clone/presentation/widgets/feed_post_video.dart';
+import 'package:reddit_clone/presentation/widgets/post_comments_counter.dart';
 import 'package:reddit_clone/presentation/widgets/post_images.dart';
+import 'package:reddit_clone/presentation/widgets/post_vote_controls.dart';
 
 class FeedPost extends StatelessWidget {
   final Post post;
@@ -15,7 +18,7 @@ class FeedPost extends StatelessWidget {
       child: InkWell(
         onTap: () {},
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,7 +32,7 @@ class FeedPost extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 6),
+              const SizedBox(height: 9),
               Builder(
                 builder: (context) {
                   final post = this.post;
@@ -44,8 +47,14 @@ class FeedPost extends StatelessWidget {
                   };
                 },
               ),
-              const SizedBox(height: 6),
-          
+              const SizedBox(height: 9),
+              Row(
+                children: [
+                  PostVoteControls(post: post),
+                  SizedBox(width: 12),
+                  PostCommentsCounter(post: post),
+                ],
+              ),
             ],
           ),
         ),

@@ -1,4 +1,3 @@
-
 part of "post.dart";
 
 class ImagePost extends Post {
@@ -14,6 +13,8 @@ class ImagePost extends Post {
     required super.subredditImageUrl,
     required super.comments,
     required super.upvotes,
-    required this.imageUrls, required super.date,
-  });
+    required this.imageUrls,
+    required super.date,
+    required super.userVote,
+  }) : super(commentsCount: countCommentsWithReplies(comments));
 }

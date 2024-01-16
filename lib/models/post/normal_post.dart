@@ -10,6 +10,8 @@ class NormalPost extends Post {
     required super.subredditName,
     required super.subredditImageUrl,
     required super.comments,
-    required super.upvotes, required super.date,
-  });
+    required super.upvotes,
+    required super.date,
+    required super.userVote,
+  }): super(commentsCount: countCommentsWithReplies(comments));
 }

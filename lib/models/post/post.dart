@@ -1,4 +1,5 @@
 import 'package:reddit_clone/models/comment.dart';
+import 'package:reddit_clone/utils/count_comments.dart';
 
 part "video_post.dart";
 part "image_post.dart";
@@ -15,6 +16,8 @@ sealed class Post {
   final List<Comment> comments;
   final DateTime date;
   int upvotes;
+  int userVote;
+  int commentsCount;
 
   Post({
     required this.id,
@@ -27,6 +30,7 @@ sealed class Post {
     required this.comments,
     required this.date,
     required this.upvotes,
+    required this.userVote,
+    required this.commentsCount,
   });
 }
-
